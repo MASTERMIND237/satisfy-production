@@ -24,16 +24,16 @@ return new class extends Migration
 
         // Table pour les tokens API Sanctum
         // Chaque connexion depuis le frontend ou la PWA génère un token ici
-        Schema::create('personal_access_tokens', function (Blueprint $table) {
-            $table->id();
-            $table->morphs('tokenable');                                         // Lié à l'utilisateur (polymorphique)
-            $table->string('name');                                              // Nom du token (ex: "web", "mobile")
-            $table->string('token', 64)->unique();                               // Le token hashé
-            $table->text('abilities')->nullable();                               // Permissions JSON (ex: ["read", "write"])
-            $table->timestamp('last_used_at')->nullable();                       // Dernière utilisation
-            $table->timestamp('expires_at')->nullable();                         // Expiration du token
-            $table->timestamps();
-        });
+        // Schema::create('personal_access_tokens', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->morphs('tokenable');                                         // Lié à l'utilisateur (polymorphique)
+        //     $table->string('name');                                              // Nom du token (ex: "web", "mobile")
+        //     $table->string('token', 64)->unique();                               // Le token hashé
+        //     $table->text('abilities')->nullable();                               // Permissions JSON (ex: ["read", "write"])
+        //     $table->timestamp('last_used_at')->nullable();                       // Dernière utilisation
+        //     $table->timestamp('expires_at')->nullable();                         // Expiration du token
+        //     $table->timestamps();
+        // });
 
         // Table pour les sessions (si tu utilises la session DB)
         Schema::create('sessions', function (Blueprint $table) {
